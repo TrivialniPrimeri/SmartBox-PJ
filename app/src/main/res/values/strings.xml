@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SmartBoxPJ</string>
+    <string name="scan">Scan QR code</string>
+    <string name="description">This app is used to unlock your Smart Box using a QR scanner</string>
+    <string name="logodesc">App logo</string>
+</resources>
