@@ -27,6 +27,7 @@
         android:background="@color/lightBlue"
         android:backgroundTint="@color/lightBlue"
         android:text="@string/scan"
+        android:onClick="scanQrCode"
         android:textColor="@color/black"
         app:cornerRadius="?android:attr/buttonCornerRadius"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
