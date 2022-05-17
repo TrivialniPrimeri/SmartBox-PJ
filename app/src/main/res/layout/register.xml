@@ -10,7 +10,7 @@
         android:id="@+id/imageView2"
         android:layout_width="365dp"
         android:layout_height="499dp"
-        android:contentDescription="blueBackgroundImage"
+        android:contentDescription="@string/backgroundDescriptor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
-        android:text="Registration"
+        android:text="@string/regTitle"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,7 +113,7 @@
         android:id="@+id/regName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="@string/regName"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newName"
         app:layout_constraintEnd_toStartOf="@+id/middleGuidleline"
@@ -130,7 +130,7 @@
         android:id="@+id/regSurname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Surname"
+        android:text="@string/regSurname"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newSurname"
         app:layout_constraintEnd_toEndOf="@+id/regName" />
@@ -139,7 +139,7 @@
         android:id="@+id/regEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="@string/regEmail"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newEmail"
         app:layout_constraintEnd_toEndOf="@+id/regSurname" />
@@ -148,7 +148,7 @@
         android:id="@+id/regPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone"
+        android:text="@string/regPhone"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newPhoneNumber"
         app:layout_constraintEnd_toEndOf="@+id/regEmail" />
@@ -157,7 +157,7 @@
         android:id="@+id/regAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Address"
+        android:text="@string/regAddress"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newAddress"
         app:layout_constraintEnd_toEndOf="@+id/regPhone" />
@@ -166,7 +166,7 @@
         android:id="@+id/regPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="@string/regPassword"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="@+id/regAddress" />
@@ -176,19 +176,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:text="Confirm"
+        android:text="@string/confirmation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/middleGuidleline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
+        android:text="@string/signIn"
         app:layout_constraintBaseline_toBaselineOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/middleGuidleline" />
+        app:layout_constraintStart_toStartOf="@+id/middleGuidleline"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

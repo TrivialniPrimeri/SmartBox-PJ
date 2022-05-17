@@ -2,5 +2,17 @@
     <string name="app_name">SmartBoxPJ</string>
     <string name="scan">Scan QR code</string>
     <string name="description">This app is used to unlock your Smart Box using a QR scanner</string>
-    <string name="logodesc">App logo</string>
+    <string name="backgroundDescriptor">Page background image</string>
+    <string name="logoDesc">App logo</string>
+    <string name="regTitle">Registration</string>
+    <string name="regName">Name</string>
+    <string name="regSurname">Surname</string>
+    <string name="regEmail">Email</string>
+    <string name="regPhone">Phone</string>
+    <string name="regAddress">Address</string>
+    <string name="regPassword">Password</string>
+    <string name="signIn">Sign in</string>
+    <string name="singUp">Sign up</string>
+    <string name="confirmation">Confirm</string>
+    <string name="history">History</string>
 </resources>
