@@ -39,7 +39,6 @@ open class MainActivity : AppCompatActivity() {
                     fos.close()
                     val player = MediaPlayer.create(applicationContext, Uri.parse("$filesDir/test.mp3"))
                     player.start()
-
                 }
 
                 override fun onFailure(call: Call, e: IOException) {
