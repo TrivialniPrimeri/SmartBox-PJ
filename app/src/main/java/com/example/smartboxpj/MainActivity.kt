@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.gson.Gson
@@ -20,12 +21,40 @@ import java.lang.Exception
 data class API_Response(val data: String, val result: String, val errorNumber: String){}
 
 open class MainActivity : AppCompatActivity() {
+
+    private lateinit var cameraHelper: CameraHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
     }
+
+    private fun onResult(result: String) {
+        Log.d("foo", "Result is $result")
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        cameraHelper.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
     fun scanQrCode(view: View){
+
+        cameraHelper = CameraHelper(
+            owner = this,
+            context = this.applicationContext,
+            viewFinder = findViewById(R.id.qrPreview),
+            onResult = ::onResult
+        )
+
+        cameraHelper.start()
+
+
         val client = OkHttpClient()
         val request: Request =  Request.Builder().url("https://ancient-savannah-30390.herokuapp.com/box/unlock/541").build()
         try {
@@ -47,8 +76,8 @@ open class MainActivity : AppCompatActivity() {
             })
         } catch (e: Exception){
             println(e.message)
+            Toast.makeText(this, "Neuspešno skeniranje" ,Toast.LENGTH_SHORT).show()
         }
-        Toast.makeText(this, "Neuspešno skeniranje" ,Toast.LENGTH_SHORT).show()
     }
 
     fun showSignUp(view: View) {
