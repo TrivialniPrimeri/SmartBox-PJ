@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lavender"
+    android:background="?colorSecondaryVariant"
     tools:context=".MainActivity">
 
     <ImageView
@@ -32,7 +32,7 @@
         android:layout_height="72dp"
         android:text="@string/description"
         android:textAlignment="center"
-        android:textColor="#455A64"
+        android:textColor="?colorOnPrimary"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

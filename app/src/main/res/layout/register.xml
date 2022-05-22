@@ -4,19 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lavender">
+    android:background="?colorSecondaryVariant">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="365dp"
-        android:layout_height="499dp"
+        android:layout_width="329dp"
+        android:layout_height="475dp"
         android:contentDescription="@string/backgroundDescriptor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_gradientbackground"
+        app:srcCompat="@drawable/ic_graybackground"
         tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="413dp"
+        android:layout_height="123dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_top2" />
 
     <EditText
         android:id="@+id/newName"
@@ -28,6 +38,9 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:pointerIcon="none"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toEndOf="@+id/regName"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
@@ -42,6 +55,9 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintStart_toStartOf="@+id/newName"
         app:layout_constraintTop_toBottomOf="@+id/newName"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -55,6 +71,9 @@
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintStart_toStartOf="@+id/newSurname"
         app:layout_constraintTop_toBottomOf="@+id/newSurname"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -68,6 +87,9 @@
         android:importantForAutofill="no"
         android:inputType="phone"
         android:minHeight="48dp"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintStart_toStartOf="@+id/newEmail"
         app:layout_constraintTop_toBottomOf="@+id/newEmail"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -81,6 +103,9 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintStart_toStartOf="@+id/newPhoneNumber"
         app:layout_constraintTop_toBottomOf="@+id/newPhoneNumber"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -94,6 +119,9 @@
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintStart_toStartOf="@+id/newAddress"
         app:layout_constraintTop_toBottomOf="@+id/newAddress"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -104,6 +132,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
         android:text="@string/regTitle"
+        android:textColor="?colorOnPrimary"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,6 +143,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/regName"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newName"
         app:layout_constraintEnd_toStartOf="@+id/middleGuidleline"
@@ -131,6 +162,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/regSurname"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newSurname"
         app:layout_constraintEnd_toEndOf="@+id/regName" />
@@ -140,6 +173,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/regEmail"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newEmail"
         app:layout_constraintEnd_toEndOf="@+id/regSurname" />
@@ -149,6 +184,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/regPhone"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newPhoneNumber"
         app:layout_constraintEnd_toEndOf="@+id/regEmail" />
@@ -158,6 +195,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/regAddress"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newAddress"
         app:layout_constraintEnd_toEndOf="@+id/regPhone" />
@@ -167,6 +206,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/regPassword"
+        android:textColor="?colorPrimaryVariant"
+        android:backgroundTint="?colorPrimaryVariant"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="@+id/regAddress" />
