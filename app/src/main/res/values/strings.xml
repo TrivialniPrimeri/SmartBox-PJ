@@ -4,7 +4,7 @@
     <string name="description">This app is used to unlock your Smart Box using a QR scanner</string>
     <string name="backgroundDescriptor">Page background image</string>
     <string name="logoDesc">App logo</string>
-    <string name="regTitle">Registration</string>
+    <string name="regTitle">Create account</string>
     <string name="regName">Name</string>
     <string name="regSurname">Surname</string>
     <string name="regEmail">Email</string>
