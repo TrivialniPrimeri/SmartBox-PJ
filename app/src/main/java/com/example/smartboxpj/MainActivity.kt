@@ -1,6 +1,7 @@
 package com.example.smartboxpj
 
 
+import android.app.Activity
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
@@ -10,6 +11,7 @@ import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.*
@@ -22,7 +24,6 @@ data class API_Response(val data: String, val result: String, val errorNumber: S
 
 open class MainActivity : AppCompatActivity() {
 
-    private lateinit var cameraHelper: CameraHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,54 +31,61 @@ open class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun onResult(result: String) {
-        Log.d("foo", "Result is $result")
-    }
+    val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val id = result.data?.getStringExtra("id")
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        cameraHelper.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+
+            //Toast.makeText(this, "Id: $id" ,Toast.LENGTH_SHORT).show()
+            // Handle the Intent
+
+            val client = OkHttpClient()
+            val request: Request =  Request.Builder().url("https://ancient-savannah-30390.herokuapp.com/box/unlock/$id").build()
+            try {
+                client.newCall(request).enqueue(object: Callback {
+                    override fun onResponse(call: Call, response: Response) {
+                        val body = response?.body?.string()
+                        val gson = GsonBuilder().create()
+                        val resp = gson.fromJson(body, API_Response::class.java)
+
+                        if(resp.errorNumber != null){ //todo: individual error messages for error codes (403, 404...)
+                            runOnUiThread {
+                                Toast.makeText(applicationContext, "Napaka pri pridobivanju žetona." ,Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                        else{
+                            val fos = FileOutputStream(File(filesDir, "test.mp3"))
+                            fos.write(Base64.decode(resp.data.toByteArray(), Base64.DEFAULT))
+                            fos.close()
+                            val player = MediaPlayer.create(applicationContext, Uri.parse("$filesDir/test.mp3"))
+                            player.start()
+
+                            player.setOnCompletionListener {
+                                Toast.makeText(applicationContext, "Koncal sem!" ,Toast.LENGTH_SHORT).show()
+                                //send request to API to save stuff
+                            }
+
+                        }
+
+                    }
+
+                    override fun onFailure(call: Call, e: IOException) {
+                        println(e.localizedMessage)
+                    }
+                })
+            } catch (e: Exception){
+                println(e.message)
+                Toast.makeText(this, "Neuspešno skeniranje" ,Toast.LENGTH_SHORT).show()
+            }
+
+
+        }
     }
 
     fun scanQrCode(view: View){
-
-        cameraHelper = CameraHelper(
-            owner = this,
-            context = this.applicationContext,
-            viewFinder = findViewById(R.id.qrPreview),
-            onResult = ::onResult
-        )
-
-        cameraHelper.start()
-
-
-        val client = OkHttpClient()
-        val request: Request =  Request.Builder().url("https://ancient-savannah-30390.herokuapp.com/box/unlock/541").build()
-        try {
-            client.newCall(request).enqueue(object: Callback {
-                override fun onResponse(call: Call, response: Response) {
-                    val body = response?.body?.string()
-                    val gson = GsonBuilder().create()
-                    val resp = gson.fromJson(body, API_Response::class.java)
-                    val fos = FileOutputStream(File(filesDir, "test.mp3"))
-                    fos.write(Base64.decode(resp.data.toByteArray(), Base64.DEFAULT))
-                    fos.close()
-                    val player = MediaPlayer.create(applicationContext, Uri.parse("$filesDir/test.mp3"))
-                    player.start()
-                }
-
-                override fun onFailure(call: Call, e: IOException) {
-                    println(e.localizedMessage)
-                }
-            })
-        } catch (e: Exception){
-            println(e.message)
-            Toast.makeText(this, "Neuspešno skeniranje" ,Toast.LENGTH_SHORT).show()
-        }
+        val intent = Intent(this, QrScannerActivity::class.java)
+        getContent.launch(intent)
     }
 
     fun showSignUp(view: View) {
