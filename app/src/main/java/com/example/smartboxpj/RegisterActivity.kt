@@ -20,7 +20,7 @@ class RegisterActivity : MainActivity(){
 
     fun submitRegister(view: View) {
 
-        val requiredFields = arrayOf(binding.newName, binding.newSurname, binding.newEmail, binding.editTextTextPassword)
+        val requiredFields = arrayOf(binding.newName, binding.newSurname, binding.newEmail, binding.newPassword, binding.newRepeatPassword)
         var valid = true
         requiredFields.forEach {
             if(TextUtils.isEmpty(it.text)){
@@ -35,7 +35,7 @@ class RegisterActivity : MainActivity(){
                 .add("name", binding.newName.text.toString())
                 .add("surname", binding.newName.text.toString())
                 .add("email", binding.newEmail.text.toString())
-                .add("password", binding.editTextTextPassword.text.toString())
+                .add("password", binding.newPassword.text.toString())
                 .add("address", binding.newAddress.text.toString())
                 .add("phone", binding.newPhoneNumber.text.toString())
                 .build()

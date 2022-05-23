@@ -15,4 +15,5 @@
     <string name="singUp">Sign up</string>
     <string name="confirmation">Confirm</string>
     <string name="history">History</string>
+    <string name="regRepeatPassword">Repeat password</string>
 </resources>
