@@ -11,9 +11,9 @@
     <LinearLayout
         android:id="@+id/cardWrapper"
         android:layout_width="match_parent"
-        android:layout_height="105dp"
-        android:orientation="horizontal"
+        android:layout_height="100dp"
         android:background="?colorSecondaryVariant"
+        android:orientation="horizontal"
         android:padding="5dp">
 
         <LinearLayout
@@ -29,6 +29,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
+                android:fontFamily="@font/rubik_medium"
                 android:text="Item"
                 android:textColor="?colorOnPrimary"
                 android:textSize="20sp"
@@ -41,9 +42,10 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
+                android:fontFamily="@font/rubik"
                 android:text="Date"
                 android:textColor="?colorOnPrimary"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/successId"
@@ -52,9 +54,10 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
+                android:fontFamily="@font/rubik"
                 android:text="Successful"
                 android:textColor="?colorOnPrimary"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
