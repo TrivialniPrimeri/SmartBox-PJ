@@ -92,5 +92,9 @@ open class MainActivity : AppCompatActivity() {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
+    fun showHistory(view: View){
+        val intent = Intent(this, HistoryActivity::class.java)
+        startActivity(intent)
+    }
 
 }
