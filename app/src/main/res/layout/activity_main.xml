@@ -92,6 +92,7 @@
         android:paddingEnd="10dp"
         android:text="@string/history"
         android:textColor="?colorOnPrimary"
+        app:icon="@drawable/ic_historyicon"
         app:layout_constraintBaseline_toBaselineOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3" />

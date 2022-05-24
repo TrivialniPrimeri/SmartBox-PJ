@@ -16,7 +16,7 @@ class HistoryActivity : MainActivity() {
         binding = ActivityHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         for(i in 1..20){
-        data.add(ItemsViewModel("My title", LocalDateTime.now(), true, R.drawable.ic_logowithgradient))
+        data.add(ItemsViewModel("My title", LocalDateTime.now(), true, R.drawable.ic_boxicon3))
         }
         val recycler = findViewById<RecyclerView>(R.id.history_recycler)
         recycler.layoutManager = LinearLayoutManager(this)
