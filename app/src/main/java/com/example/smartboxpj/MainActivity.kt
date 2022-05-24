@@ -33,7 +33,10 @@ open class MainActivity : AppCompatActivity() {
 
     val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val id = result.data?.getStringExtra("id")
+            var id = result.data?.getStringExtra("id")
+
+            id = id!!.split("/").toTypedArray()[1]
+            println("moj id: $id")
 
 
 
@@ -49,13 +52,13 @@ open class MainActivity : AppCompatActivity() {
                         val gson = GsonBuilder().create()
                         val resp = gson.fromJson(body, API_Response::class.java)
 
-                        if(resp.errorNumber != null){ //todo: individual error messages for error codes (403, 404...)
+                        if(resp.errorNumber != "0"){ //todo: individual error messages for error codes (403, 404...)
                             runOnUiThread {
                                 Toast.makeText(applicationContext, "Napaka pri pridobivanju žetona." ,Toast.LENGTH_SHORT).show()
                             }
                         }
                         else{
-                            val fos = FileOutputStream(File(filesDir, "test.mp3"))
+                            val fos = FileOutputStream(File(filesDir, "audio.mp3"))
                             fos.write(Base64.decode(resp.data.toByteArray(), Base64.DEFAULT))
                             fos.close()
                             val player = MediaPlayer.create(applicationContext, Uri.parse("$filesDir/test.mp3"))
