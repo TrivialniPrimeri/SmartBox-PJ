@@ -1,0 +1,17 @@
+<vector android:height="231dp" android:viewportHeight="231.1"
+    android:viewportWidth="231.1" android:width="231dp"
+    xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:pathData="M44.27,0L186.83,0A44.27,44.27 0,0 1,231.1 44.27L231.1,186.83A44.27,44.27 0,0 1,186.83 231.1L44.27,231.1A44.27,44.27 0,0 1,0 186.83L0,44.27A44.27,44.27 0,0 1,44.27 0z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:endX="231.1" android:endY="115.55"
+                android:startX="0" android:startY="115.55" android:type="linear">
+                <item android:color="#FF70B0E9" android:offset="0"/>
+                <item android:color="#FF5F94C4" android:offset="1"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:fillColor="#fff" android:pathData="M60.13,51.62L168.7,51.62A8.09,8.09 0,0 1,176.79 59.71L176.79,76.88A8.09,8.09 0,0 1,168.7 84.97L60.13,84.97A8.09,8.09 0,0 1,52.04 76.88L52.04,59.71A8.09,8.09 0,0 1,60.13 51.62z"/>
+    <path android:fillColor="#fff" android:pathData="M165.26,89.91L62.74,89.91A4.73,4.73 0,0 0,58 94.64v70.61A4.74,4.74 0,0 0,62.74 170L165.26,170a4.74,4.74 0,0 0,4.74 -4.74L170,94.64A4.74,4.74 0,0 0,165.26 89.91ZM137.68,117.29a6.59,6.59 0,0 1,-6.59 6.59L96.92,123.88a6.59,6.59 0,0 1,-6.59 -6.59v-6.38a6.59,6.59 0,0 1,6.59 -6.59h34.17a6.59,6.59 0,0 1,6.59 6.59Z"/>
+    <path android:fillColor="#606368" android:pathData="M179.8,149.93l3.73,3.23l-3.03,3.51l-9.07,-7.83l9.61,-11.12l9.06,7.84l-3.04,3.51l-3.73,-3.23l-3.53,4.09z"/>
+    <path android:fillColor="#606368" android:pathData="M160.79,177.33a19.06,19.06 0,0 0,-3.8 -15.25,2.29 2.29,0 0,0 0.27,-0.27l21.8,-25.21a2.7,2.7 0,0 0,-0.28 -3.81l-3.4,-2.94a2.7,2.7 0,0 0,-3.81 0.27l-21.8,25.22a4.06,4.06 0,0 0,-0.26 0.36,21.53 21.53,0 0,0 -3.15,-1.36c-9.94,-3.38 -19.6,1.43 -21.56,10.75s4.49,19.6 14.43,23S158.82,186.64 160.79,177.33ZM135.84,178.8c-4.78,-4.39 -5.62,-11.25 -1.89,-15.32s10.64,-3.82 15.42,0.57 5.63,11.24 1.89,15.31S140.62,183.18 135.84,178.8Z"/>
+</vector>

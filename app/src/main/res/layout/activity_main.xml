@@ -5,19 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?colorSecondaryVariant"
-    tools:context=".MainActivity"
-    android:fontFamily="@font/rubik">
+    android:fontFamily="@font/rubik"
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="125dp"
         android:contentDescription="@string/logoDesc"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logowithgradient"
+        app:srcCompat="@drawable/ic_logosmallsvg"
         tools:ignore="ImageContrastCheck" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -31,10 +31,10 @@
         android:id="@+id/textView"
         android:layout_width="380dp"
         android:layout_height="72dp"
+        android:fontFamily="@font/rubik"
         android:text="@string/description"
         android:textAlignment="center"
         android:textColor="?colorOnPrimary"
-        android:fontFamily="@font/rubik"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,4 +96,15 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="357dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_napis" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
