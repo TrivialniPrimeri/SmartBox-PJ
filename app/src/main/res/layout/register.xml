@@ -223,8 +223,8 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="36dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/rubik"
@@ -245,7 +245,7 @@
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/rubik"
         android:padding="10dp"
