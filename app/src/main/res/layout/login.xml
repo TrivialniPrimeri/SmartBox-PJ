@@ -48,6 +48,7 @@
 
     <EditText
         android:id="@+id/edit_password"
+        android:paddingStart="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -59,6 +60,8 @@
         android:inputType="text"
         android:minHeight="48dp"
         android:padding="10dip"
+        android:drawableLeft="@drawable/ic_lock"
+        android:drawablePadding="10dp"
         android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -107,6 +110,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_edittext"
+        android:drawableLeft="@drawable/ic_profile"
+        android:paddingStart="20dp"
+        android:drawablePadding="10dp"
         android:elevation="10dp"
         android:hint="@string/regEmail"
         android:inputType="text"
