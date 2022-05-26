@@ -16,4 +16,6 @@
     <string name="confirmation">Confirm</string>
     <string name="history">History</string>
     <string name="regRepeatPassword">Repeat password</string>
+    <string name="welcomeBack">Welcome back!</string>
+    <string name="loginDesc">Login in to your existing account</string>
 </resources>

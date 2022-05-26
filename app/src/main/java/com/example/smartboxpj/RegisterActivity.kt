@@ -1,5 +1,6 @@
 package com.example.smartboxpj
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -8,7 +9,7 @@ import com.example.smartboxpj.databinding.RegisterBinding
 import okhttp3.*
 import java.io.IOException
 
-class RegisterActivity : MainActivity(){
+open class RegisterActivity : MainActivity(){
     private lateinit var binding: RegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +20,6 @@ class RegisterActivity : MainActivity(){
     }
 
     fun submitRegister(view: View) {
-
         val requiredFields = arrayOf(binding.newName, binding.newSurname, binding.newEmail, binding.newPassword, binding.newRepeatPassword)
         var valid = true
         requiredFields.forEach {
@@ -70,4 +70,10 @@ class RegisterActivity : MainActivity(){
         }
 
     }
+
+    override fun showSignIn(view: View) {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
+
 }

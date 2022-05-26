@@ -44,7 +44,7 @@
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="36dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/rubik"
@@ -55,7 +55,8 @@
         android:textColor="?colorOnPrimary"
         app:layout_constraintBottom_toTopOf="@+id/historyButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -67,24 +68,25 @@
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="36dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/rubik"
-        android:onClick="showSignUp"
+        android:onClick="showSignIn"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:text="@string/singUp"
+        android:text="@string/signIn"
         android:textColor="?colorOnPrimary"
         app:icon="@drawable/ic_signup"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/historyButton"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="36dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/rubik"
         android:onClick="showHistory"
@@ -95,7 +97,8 @@
         app:icon="@drawable/ic_historyicon"
         app:layout_constraintBaseline_toBaselineOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline3" />
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageView
         android:id="@+id/imageView3"

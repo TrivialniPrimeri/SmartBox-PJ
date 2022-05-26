@@ -91,10 +91,16 @@ open class MainActivity : AppCompatActivity() {
         getContent.launch(intent)
     }
 
-    fun showSignUp(view: View) {
+    open fun showSignUp(view: View) {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
+
+    open fun showSignIn(view: View) {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
+
     fun showHistory(view: View){
         val intent = Intent(this, HistoryActivity::class.java)
         startActivity(intent)

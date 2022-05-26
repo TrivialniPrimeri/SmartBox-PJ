@@ -10,6 +10,7 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="123dp"
+        android:layout_marginTop="0dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -21,27 +22,15 @@
         android:id="@+id/registerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/rubik_medium"
-        android:text="Welcome back!"
+        android:text="@string/welcomeBack"
         android:textColor="?colorOnPrimary"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="105dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/logoDesc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:srcCompat="@drawable/ic_logosmallsvg"
-        tools:ignore="ImageContrastCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
         android:id="@+id/textView"
@@ -49,7 +38,7 @@
         android:layout_height="29dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/rubik"
-        android:text="Login in to your existing account"
+        android:text="@string/loginDesc"
         android:textAlignment="center"
         android:textColor="?colorOnPrimary"
         android:textSize="13sp"
@@ -66,9 +55,11 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_edittext"
         android:elevation="10dp"
-        android:hint="Password"
+        android:hint="@string/regPassword"
         android:inputType="text"
-        android:padding="15dip"
+        android:minHeight="48dp"
+        android:padding="10dip"
+        android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,19 +69,35 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginTop="20dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/rubik"
+        android:onClick="showSignUp"
+        android:padding="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="@string/singUp"
+        android:textColor="?colorOnPrimary"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/rubik"
         android:padding="10dp"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
-        android:text="@string/signIn"
+        android:text="@string/confirmation"
         android:textColor="?colorOnPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_password"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/edit_email"
@@ -101,12 +108,21 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_edittext"
         android:elevation="10dp"
-        android:hint="Email"
+        android:hint="@string/regEmail"
         android:inputType="text"
-        android:padding="15dip"
+        android:minHeight="48dp"
+        android:padding="10dip"
+        android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4939173" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -240,7 +240,7 @@
         app:layout_constraintEnd_toStartOf="@+id/middleGuidleline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/button3"
@@ -252,11 +252,12 @@
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         android:text="@string/signIn"
+        android:onClick="showSignIn"
         android:textColor="?colorOnPrimary"
         app:layout_constraintBaseline_toBaselineOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/middleGuidleline"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/newRepeatPassword"
