@@ -110,7 +110,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_edittext"
-        android:drawableLeft="@drawable/ic_profile"
+        android:drawableLeft="@drawable/ic_email"
         android:paddingStart="20dp"
         android:drawablePadding="10dp"
         android:elevation="10dp"
