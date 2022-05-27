@@ -14,4 +14,17 @@
         tools:listitem="@layout/history_item_card"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/darkBlue"
+        android:indeterminateTintMode="src_atop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
