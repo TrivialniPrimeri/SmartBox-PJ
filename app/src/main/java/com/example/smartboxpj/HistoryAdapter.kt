@@ -27,7 +27,6 @@ class HistoryAdapter(private val myList: List<ItemsViewModel>) : RecyclerView.Ad
         holder.title.text = itemsViewModel.title
         val dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
         holder.date.text = itemsViewModel.date.format(dateTimeFormatter)
-        holder.success.text = itemsViewModel.success.toString()
         holder.imageView.setImageResource(itemsViewModel.image)
     }
 
@@ -38,7 +37,6 @@ class HistoryAdapter(private val myList: List<ItemsViewModel>) : RecyclerView.Ad
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val title: TextView = itemView.findViewById(R.id.cardTitle)
         val date: TextView = itemView.findViewById(R.id.unlockDateId)
-        val success: TextView = itemView.findViewById(R.id.successId)
         val imageView: ImageView = itemView.findViewById(R.id.cardImage)
     }
 }

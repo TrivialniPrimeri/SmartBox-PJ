@@ -63,7 +63,7 @@ class HistoryActivity : MainActivity() {
                                     "${it.boxId.nickname} (${it.boxId.boxId})",
                                     Instant.parse(it.createdAt).atZone(ZoneOffset.UTC).toLocalDateTime(),
                                     it.success,
-                                    if (it.success) R.drawable.ic_boxicon3 else R.drawable.ic_boxicon3
+                                    if (it.success) R.drawable.ic_openboxsuccess else R.drawable.ic_openboxfail
                                 )
                                 )
                                 adapter.notifyItemInserted(data.size - 1)
