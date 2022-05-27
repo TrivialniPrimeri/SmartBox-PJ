@@ -55,13 +55,11 @@ open class MainActivity : AppCompatActivity() {
         if (result.resultCode == Activity.RESULT_OK) {
             var id = result.data?.getStringExtra("id")
 
-            id = id!!.split("/").toTypedArray()[1]
-            println("moj id: $id")
-
-
-
-            //Toast.makeText(this, "Id: $id" ,Toast.LENGTH_SHORT).show()
-            // Handle the Intent
+            try{
+                id = id!!.split("/").toTypedArray()[1]
+            } catch (e: Exception){
+                Toast.makeText(this, "QR koda ni veljavnega formata za paketnik.", Toast.LENGTH_SHORT)
+            }
 
             val client = OkHttpClient()
             val request: Request =  Request.Builder().url("https://ancient-savannah-30390.herokuapp.com/box/unlock/$id").build()
