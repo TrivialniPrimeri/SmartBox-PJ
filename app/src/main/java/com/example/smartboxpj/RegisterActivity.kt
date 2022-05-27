@@ -53,13 +53,10 @@ open class RegisterActivity : MainActivity(){
                         }
                         else{
                             runOnUiThread {
-                                Toast.makeText(applicationContext, "Uspelo!." ,Toast.LENGTH_SHORT).show()
-
+                                showSignIn()
                             }
                         }
-
                     }
-
                     override fun onFailure(call: Call, e: IOException) {
                         println(e.localizedMessage)
                     }
