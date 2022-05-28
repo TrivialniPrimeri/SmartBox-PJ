@@ -129,4 +129,9 @@ open class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun showProfile(view: View) {
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+    }
+
 }

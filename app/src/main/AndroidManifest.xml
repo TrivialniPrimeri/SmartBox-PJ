@@ -28,6 +28,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".QrScannerActivity" />
         <activity android:name=".LoginActivity"/>
+        <activity android:name=".ProfileActivity"/>
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="barcode" />
