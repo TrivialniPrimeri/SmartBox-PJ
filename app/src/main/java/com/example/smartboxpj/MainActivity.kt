@@ -3,6 +3,7 @@ package com.example.smartboxpj
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.Application
 import android.content.DialogInterface
 import android.content.Intent
 import android.media.MediaPlayer
@@ -17,6 +18,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import com.auth0.android.jwt.JWT
 import com.example.smartboxpj.databinding.ActivityMainBinding
 import com.example.smartboxpj.databinding.LoginBinding
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
@@ -98,10 +100,39 @@ open class MainActivity : AppCompatActivity() {
         binding.button4.isEnabled = !loggedIn
     }
 
+    fun unlockFeedback(state: Boolean, boxId: String?){
+
+
+        val cookieManager = PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(this))
+        val client = OkHttpClient.Builder().addInterceptor(myInterceptor(applicationContext)).cookieJar(cookieManager).build()
+
+        val cookieCache = SharedPrefsCookiePersistor(applicationContext).loadAll();
+        val cookie = cookieCache.find { it.name == "refreshToken" }
+        val userID = JWT(cookie!!.value).getClaim("id").asString()
+
+        if(boxId == null || userID == null) return
+
+        val postData = FormBody.Builder().add("success", state.toString()).add("boxId", boxId).add("userId", userID).build()
+        val request: Request =  Request.Builder().url("https://trivialciapi.maticsulc.com/unlocks").post(postData).build()
+
+        try {
+            client.newCall(request).enqueue(object: Callback {
+                override fun onResponse(call: Call, response: Response) {
+                }
+                override fun onFailure(call: Call, e: IOException) {
+                    runOnUiThread {
+                        Toast.makeText(applicationContext, "Napaka pri odklepu." , Toast.LENGTH_SHORT).show()
+                    }
+                }
+            })
+        } catch (e: Exception){
+            Toast.makeText(applicationContext, "Napaka pri odklepu." , Toast.LENGTH_SHORT).show()
+        }
+    }
+
     val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             var id = result.data?.getStringExtra("id")
-            println("MOJ ID: " + id)
 
             try{
                 id = id!!.split("/").toTypedArray()[1]
@@ -138,21 +169,17 @@ open class MainActivity : AppCompatActivity() {
                             player.start()
 
                             player.setOnCompletionListener {
-                                /*
-                                Toast.makeText(MainActivity, "Koncal sem!" ,Toast.LENGTH_SHORT).show()
-                                //send request to API to save stuff
-                                val builder = AlertDialog.Builder(applicationContext)
+                                Toast.makeText(applicationContext, "Koncal sem!" ,Toast.LENGTH_SHORT).show()
+                                val builder = AlertDialog.Builder(this@MainActivity)
                                     .setCancelable(false)
                                     .setTitle("Ali ste uspešno odklenili paketnik?")
                                     .setPositiveButton("Da") { dialog, which ->
-                                        Toast.makeText(applicationContext, "DAAA", Toast.LENGTH_SHORT).show()
+                                        unlockFeedback(true, id)
                                     }
                                     .setNegativeButton("Ne") { dialog, which ->
-                                        Toast.makeText(applicationContext, "NEE", Toast.LENGTH_SHORT).show()
+                                        unlockFeedback(false, id)
                                     }
                                     .show()
-                                    */
-                                 */
                             }
                         }
                         else{
