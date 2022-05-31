@@ -18,7 +18,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_logosmallsvg"
-        android:onClick="showProfile"
         tools:ignore="ImageContrastCheck" />
 
     <androidx.constraintlayout.widget.Guideline
