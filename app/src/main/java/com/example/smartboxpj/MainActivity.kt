@@ -222,11 +222,13 @@ open class MainActivity : AppCompatActivity() {
 
     fun showHistory(){
         val intent = Intent(this, HistoryActivity::class.java)
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
 
     fun showProfile() {
         val intent = Intent(this, ProfileActivity::class.java)
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
 

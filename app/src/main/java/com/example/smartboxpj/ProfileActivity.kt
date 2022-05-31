@@ -15,6 +15,7 @@ import com.franmontiel.persistentcookiejar.cache.CookieCache
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.google.gson.Gson
+import com.squareup.picasso.Picasso
 import okhttp3.*
 import java.io.IOException
 import java.time.Instant
@@ -29,6 +30,7 @@ data class profileResponse(
     val address: String,
     val boxCount: String,
     val authorizedCount: String,
+    val imgPath: String,
 )
 
 class ProfileActivity : MainActivity() {
@@ -49,7 +51,6 @@ class ProfileActivity : MainActivity() {
             client.newCall(request).enqueue(object: Callback {
                 override fun onResponse(call: Call, response: Response) {
                     if(response.code != 200){
-                        println(response.code)
                         runOnUiThread {
                             Toast.makeText(applicationContext, "Napaka pri pridobivanju profila 0." , Toast.LENGTH_SHORT).show()
                         }
@@ -64,6 +65,7 @@ class ProfileActivity : MainActivity() {
                             binding.textView2.text = "${obj.name} ${obj.surname}"
                             binding.textView13.setText(obj.boxCount)
                             binding.textView18.setText(obj.authorizedCount)
+                            Picasso.get().load("https://trivialciapi.maticsulc.com${obj.imgPath}").placeholder(R.drawable.ic_avatar).into(binding.shapeableImageView)
                         }
                     }
                 }
