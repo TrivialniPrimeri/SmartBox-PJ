@@ -43,7 +43,7 @@ class ProfileActivity : MainActivity() {
 
         val cookieManager = PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(this))
         val client = OkHttpClient.Builder().addInterceptor(myInterceptor(applicationContext)).cookieJar(cookieManager).build()
-        val request: Request =  Request.Builder().url("https://ancient-savannah-30390.herokuapp.com/users/$userID/").build()
+        val request: Request =  Request.Builder().url("https://trivialciapi.maticsulc.com/users/$userID/").build()
 
         try {
             client.newCall(request).enqueue(object: Callback {
@@ -64,7 +64,6 @@ class ProfileActivity : MainActivity() {
                             binding.textView2.text = "${obj.name} ${obj.surname}"
                             binding.textView13.setText(obj.boxCount)
                             binding.textView18.setText(obj.authorizedCount)
-                            println(obj)
                         }
                     }
                 }

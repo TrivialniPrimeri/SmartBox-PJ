@@ -44,7 +44,7 @@ class HistoryActivity : MainActivity() {
 
         val cookieManager = PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(this))
         val client = OkHttpClient.Builder().addInterceptor(myInterceptor(applicationContext)).cookieJar(cookieManager).build()
-        val request: Request =  Request.Builder().url("https://ancient-savannah-30390.herokuapp.com/users/$userID/unlocks").build()
+        val request: Request =  Request.Builder().url("https://trivialciapi.maticsulc.com/users/$userID/unlocks").build()
 
         try {
             client.newCall(request).enqueue(object: Callback {
@@ -56,20 +56,26 @@ class HistoryActivity : MainActivity() {
                     }
                     else{
                         runOnUiThread {
-                            print("RESPONSE:::::: " + response.body!!.string())
-                            val obj = Gson().fromJson(response.body!!.string(), Array<historyResponse>::class.java)
-                            obj.forEach {
-                                data.add(
-                                    ItemsViewModel(
-                                    "${it.boxId.nickname} (${it.boxId.boxId})",
-                                    Instant.parse(it.createdAt).atZone(ZoneOffset.UTC).toLocalDateTime(),
-                                    it.success,
-                                    if (it.success) R.drawable.ic_openboxsuccess else R.drawable.ic_openboxfail
-                                )
-                                )
-                                adapter.notifyItemInserted(data.size - 1)
+                            if(response.body!!.string() == "[]"){
                                 binding.progressBar.visibility = View.GONE
+                                Toast.makeText(applicationContext, "Nimate odklepov.", Toast.LENGTH_LONG).show()
                             }
+                            else{
+                                val obj = Gson().fromJson(response.body!!.string(), Array<historyResponse>::class.java)
+                                obj.forEach {
+                                    data.add(
+                                        ItemsViewModel(
+                                            "${it.boxId.nickname} (${it.boxId.boxId})",
+                                            Instant.parse(it.createdAt).atZone(ZoneOffset.UTC).toLocalDateTime(),
+                                            it.success,
+                                            if (it.success) R.drawable.ic_openboxsuccess else R.drawable.ic_openboxfail
+                                        )
+                                    )
+                                    adapter.notifyItemInserted(data.size - 1)
+                                    binding.progressBar.visibility = View.GONE
+                                }
+                            }
+
                         }
                     }
                 }

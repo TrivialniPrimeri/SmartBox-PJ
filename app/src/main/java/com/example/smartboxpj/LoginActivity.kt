@@ -44,7 +44,7 @@ class LoginActivity : MainActivity() {
         val cookieManager = PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(this))
 
         val client = OkHttpClient.Builder().cookieJar(cookieManager).build()
-        val request: Request =  Request.Builder().url("https://ancient-savannah-30390.herokuapp.com/auth/login/").post(data).build()
+        val request: Request =  Request.Builder().url("https://trivialciapi.maticsulc.com/auth/login/").post(data).build()
 
         try {
             client.newCall(request).enqueue(object: Callback {

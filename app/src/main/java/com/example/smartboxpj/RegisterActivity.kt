@@ -41,7 +41,7 @@ open class RegisterActivity : MainActivity(){
                 .build()
 
             val client = OkHttpClient()
-            val request: Request =  Request.Builder().url("https://ancient-savannah-30390.herokuapp.com/auth/register/").post(data).build()
+            val request: Request =  Request.Builder().url("https://trivialciapi.maticsulc.com/auth/register/").post(data).build()
             try {
                 client.newCall(request).enqueue(object: Callback {
                     override fun onResponse(call: Call, response: Response) {
