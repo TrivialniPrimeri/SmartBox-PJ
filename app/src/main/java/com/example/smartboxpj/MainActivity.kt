@@ -169,7 +169,6 @@ open class MainActivity : AppCompatActivity() {
                             player.start()
 
                             player.setOnCompletionListener {
-                                Toast.makeText(applicationContext, "Koncal sem!" ,Toast.LENGTH_SHORT).show()
                                 val builder = AlertDialog.Builder(this@MainActivity)
                                     .setCancelable(false)
                                     .setTitle("Ali ste uspešno odklenili paketnik?")

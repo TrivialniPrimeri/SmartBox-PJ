@@ -49,6 +49,8 @@ class HistoryActivity : MainActivity() {
         try {
             client.newCall(request).enqueue(object: Callback {
                 override fun onResponse(call: Call, response: Response) {
+                    println(response.code)
+                    val bodyString = response.body!!.string()
                     if(response.code != 200){
                         runOnUiThread {
                             Toast.makeText(applicationContext, "Napaka pri pridobivanju zgodovine." , Toast.LENGTH_SHORT).show()
@@ -56,12 +58,12 @@ class HistoryActivity : MainActivity() {
                     }
                     else{
                         runOnUiThread {
-                            if(response.body!!.string() == "[]"){
+                            if(bodyString == "[]"){
                                 binding.progressBar.visibility = View.GONE
                                 Toast.makeText(applicationContext, "Nimate odklepov.", Toast.LENGTH_LONG).show()
                             }
                             else{
-                                val obj = Gson().fromJson(response.body!!.string(), Array<historyResponse>::class.java)
+                                val obj = Gson().fromJson(bodyString, Array<historyResponse>::class.java)
                                 obj.forEach {
                                     data.add(
                                         ItemsViewModel(
