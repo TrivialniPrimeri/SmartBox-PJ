@@ -19,13 +19,13 @@ class myInterceptor (private val ctx: Context) : Interceptor {
         val cookieManager = PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(ctx))
 
         val client = OkHttpClient.Builder().cookieJar(cookieManager).build()
-        val request: Request =  Request.Builder().url("https://ancient-savannah-30390.herokuapp.com/auth/refresh").post(FormBody.Builder().build()).build()
+        val request: Request =  Request.Builder().url("https://trivialciapi.maticsulc.com/auth/refresh").post(FormBody.Builder().build()).build()
 
         try {
             client.newCall(request).execute().use {resp ->
                 val jsonResponse = Gson().fromJson(resp.body!!.string(), response::class.java)
                 val cookie = Cookie.Builder()
-                    .domain("ancient-savannah-30390.herokuapp.com")
+                    .domain("trivialciapi.maticsulc.com")
                     .path("/")
                     .name("accessToken")
                     .value(jsonResponse.accessToken)

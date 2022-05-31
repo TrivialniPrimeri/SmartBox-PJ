@@ -2,6 +2,8 @@ package com.example.smartboxpj
 
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
@@ -94,16 +96,16 @@ open class MainActivity : AppCompatActivity() {
 
         binding.button.isEnabled = loggedIn
         binding.button4.isEnabled = !loggedIn
-
     }
 
     val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             var id = result.data?.getStringExtra("id")
+            println("MOJ ID: " + id)
 
             try{
                 id = id!!.split("/").toTypedArray()[1]
-                if(id.startsWith("000")){
+                if(id.substring(0,3) == "000"){
                     id = id.drop(3)
                 }
             } catch (e: Exception){
@@ -129,15 +131,28 @@ open class MainActivity : AppCompatActivity() {
                         val resp = gson.fromJson(body, API_Response::class.java)
 
                         if(resp.errorNumber == "0"){
-                            val fos = FileOutputStream(File(filesDir, "audio.mp3"))
+                            val fos = FileOutputStream(File(filesDir, "token.mp3"))
                             fos.write(Base64.decode(resp.data.toByteArray(), Base64.DEFAULT))
                             fos.close()
-                            val player = MediaPlayer.create(applicationContext, Uri.parse("$filesDir/test.mp3"))
+                            val player = MediaPlayer.create(applicationContext, Uri.parse("$filesDir/token.mp3"))
                             player.start()
 
                             player.setOnCompletionListener {
-                                Toast.makeText(applicationContext, "Koncal sem!" ,Toast.LENGTH_SHORT).show()
+                                /*
+                                Toast.makeText(MainActivity, "Koncal sem!" ,Toast.LENGTH_SHORT).show()
                                 //send request to API to save stuff
+                                val builder = AlertDialog.Builder(applicationContext)
+                                    .setCancelable(false)
+                                    .setTitle("Ali ste uspešno odklenili paketnik?")
+                                    .setPositiveButton("Da") { dialog, which ->
+                                        Toast.makeText(applicationContext, "DAAA", Toast.LENGTH_SHORT).show()
+                                    }
+                                    .setNegativeButton("Ne") { dialog, which ->
+                                        Toast.makeText(applicationContext, "NEE", Toast.LENGTH_SHORT).show()
+                                    }
+                                    .show()
+                                    */
+                                 */
                             }
                         }
                         else{
