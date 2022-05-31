@@ -56,6 +56,7 @@ class HistoryActivity : MainActivity() {
                     }
                     else{
                         runOnUiThread {
+                            print("RESPONSE:::::: " + response.body!!.string())
                             val obj = Gson().fromJson(response.body!!.string(), Array<historyResponse>::class.java)
                             obj.forEach {
                                 data.add(

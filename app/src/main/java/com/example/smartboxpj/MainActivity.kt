@@ -40,8 +40,12 @@ open class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
-        if(id == R.id.menu_item){
+        if(id == R.id.menu_profile){
             showProfile()
+            return true
+        }
+        if(id == R.id.menu_history){
+            showHistory()
             return true
         }
         return super.onOptionsItemSelected(item)
@@ -60,7 +64,6 @@ open class MainActivity : AppCompatActivity() {
         }
 
         binding.button.isEnabled = loggedIn
-        binding.historyButton.isEnabled = loggedIn
         binding.button4.isEnabled = !loggedIn
 
     }
@@ -114,7 +117,6 @@ open class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Neuspešno skeniranje" ,Toast.LENGTH_SHORT).show()
             }
 
-
         }
     }
 
@@ -138,7 +140,7 @@ open class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun showHistory(view: View){
+    fun showHistory(){
         val intent = Intent(this, HistoryActivity::class.java)
         startActivity(intent)
     }
