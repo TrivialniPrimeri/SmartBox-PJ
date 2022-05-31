@@ -48,11 +48,15 @@ open class MainActivity : AppCompatActivity() {
 
         if(!loggedIn){
             menu!!.getItem(0).setEnabled(false)
+            menu!!.getItem(0).getIcon().setAlpha(100)
             menu!!.getItem(1).setEnabled(false)
+            menu!!.getItem(1).getIcon().setAlpha(100)
         }
         else{
             menu!!.getItem(0).setEnabled(true)
+            menu!!.getItem(0).getIcon().setAlpha(255)
             menu!!.getItem(1).setEnabled(true)
+            menu!!.getItem(1).getIcon().setAlpha(255)
         }
 
         return super.onPrepareOptionsMenu(menu)
