@@ -87,10 +87,13 @@ class ProfileActivity : MainActivity() {
         setContentView(binding.root)
         binding.progressBar.visibility = View.VISIBLE
         getDataFromAPI(applicationContext)
-
-
     }
 
+    fun logoutClick(view: View) {
+        SharedPrefsCookiePersistor(this).clear()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
 
 
 }

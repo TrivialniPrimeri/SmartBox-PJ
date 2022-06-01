@@ -85,7 +85,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="338dp"
-        android:layout_height="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -104,8 +105,8 @@
             android:enabled="false"
             android:minHeight="48dp"
             android:padding="10dip"
-            android:textColor="?colorSecondary"
             android:paddingHorizontal="20dp"
+            android:textColor="?colorSecondary"
             android:textCursorDrawable="@drawable/color_cursor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,8 +125,8 @@
             android:enabled="false"
             android:minHeight="48dp"
             android:padding="10dip"
-            android:textColor="?colorSecondary"
             android:paddingHorizontal="20dp"
+            android:textColor="?colorSecondary"
             android:textCursorDrawable="@drawable/color_cursor"
             app:layout_constraintTop_toBottomOf="@+id/newEmail"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -143,8 +144,8 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:padding="10dip"
-            android:textColor="?colorSecondary"
             android:paddingHorizontal="20dp"
+            android:textColor="?colorSecondary"
             android:textCursorDrawable="@drawable/color_cursor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -190,6 +191,25 @@
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/rubik"
+        android:onClick="logoutClick"
+        android:padding="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="@string/logout"
+        android:textColor="?colorOnPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <ProgressBar
         android:id="@+id/progressBar"

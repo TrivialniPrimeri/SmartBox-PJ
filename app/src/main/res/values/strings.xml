@@ -14,6 +14,7 @@
     <string name="signIn">Sign in</string>
     <string name="singUp">Sign up</string>
     <string name="confirmation">Confirm</string>
+    <string name="logout">Logout</string>
     <string name="history">History</string>
     <string name="regRepeatPassword">Repeat password</string>
     <string name="welcomeBack">Welcome back!</string>
