@@ -82,6 +82,8 @@ class LoginActivity : MainActivity() {
 
     private fun dispatchTakePictureIntent() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        takePictureIntent.putExtra("android.intent.extras.CAMERA_FACING", 1)
+        takePictureIntent.putExtra("android.intent.extra.USE_FRONT_CAMERA", true)
         try {
             resultLauncher.launch(takePictureIntent)
         } catch (e: ActivityNotFoundException) {
