@@ -4,11 +4,14 @@ import Util.ImageUtil
 import android.R.attr.bitmap
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import com.example.smartboxpj.databinding.LoginBinding
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
@@ -16,11 +19,12 @@ import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersisto
 import okhttp3.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import java.util.jar.Manifest
 
 
 class LoginActivity : MainActivity() {
     private lateinit var binding: LoginBinding
-    val REQUEST_ID_MULTIPLE_PERMISSIONS = 1
+    val CAMERA_REQUEST = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = LoginBinding.inflate(layoutInflater)
@@ -36,10 +40,10 @@ class LoginActivity : MainActivity() {
         startActivity(intent)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_ID_MULTIPLE_PERMISSIONS && resultCode == RESULT_OK) {
-            val imageBitmap = data?.extras?.get("data") as Bitmap
+
+    var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val imageBitmap = result.data?.extras?.get("data") as Bitmap
             Toast.makeText(applicationContext, "Slika uspešno zajeta." , Toast.LENGTH_SHORT).show()
             val convertedImg = ImageUtil.convert(imageBitmap)
 
@@ -79,16 +83,35 @@ class LoginActivity : MainActivity() {
     private fun dispatchTakePictureIntent() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         try {
-            startActivityForResult(takePictureIntent, REQUEST_ID_MULTIPLE_PERMISSIONS)
-
+            resultLauncher.launch(takePictureIntent)
         } catch (e: ActivityNotFoundException) {
             Toast.makeText(applicationContext, "Napaka pri odpiranju kamere." , Toast.LENGTH_SHORT).show()
+        }
+    }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode == CAMERA_REQUEST){
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                dispatchTakePictureIntent()
+            }
+            else{
+                Toast.makeText(applicationContext, "Napaka pri odpiranju kamere." , Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
     fun cameraLogin(view: View){
         try{
-            dispatchTakePictureIntent()
+            if(checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+                requestPermissions(arrayOf(android.Manifest.permission.CAMERA), CAMERA_REQUEST)
+            }
+            else{
+                dispatchTakePictureIntent()
+            }
         } catch (e: ActivityNotFoundException) {
             Toast.makeText(applicationContext, "Napaka pri odpiranju kamere." , Toast.LENGTH_SHORT).show()
         }
