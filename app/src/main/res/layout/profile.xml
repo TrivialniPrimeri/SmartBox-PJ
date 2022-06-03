@@ -20,7 +20,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_avatar"
         app:layout_constraintBottom_toBottomOf="@+id/topBackground"
         app:layout_constraintEnd_toEndOf="parent"
