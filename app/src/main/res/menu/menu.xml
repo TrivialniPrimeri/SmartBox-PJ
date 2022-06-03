@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_profilemenu"
         android:orderInCategory="100"
         android:title="Profile"
-        android:textColor="?colorOnSecondary"
+        android:textColor="?colorOnPrimary"
         app:showAsAction="always" />
 
     <item
@@ -15,6 +15,6 @@
         android:icon="@drawable/ic_historyicon"
         android:orderInCategory="100"
         android:title="Unlocks"
-        android:textColor="?colorOnSecondary"
+        android:textColor="?colorOnPrimary"
         app:showAsAction="always" />
 </menu>
