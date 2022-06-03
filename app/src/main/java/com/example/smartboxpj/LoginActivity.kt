@@ -16,11 +16,13 @@ import com.example.smartboxpj.databinding.LoginBinding
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
+import com.google.gson.Gson
 import okhttp3.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.util.jar.Manifest
 
+data class FaceResponse(val success: Boolean, val name: String)
 
 class LoginActivity : MainActivity() {
     private lateinit var binding: LoginBinding
@@ -53,12 +55,11 @@ class LoginActivity : MainActivity() {
 
             val cookieManager = PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(this))
             val client = OkHttpClient.Builder().cookieJar(cookieManager).build()
-            val request: Request =  Request.Builder().url("https://trivialciapi.maticsulc.com/auth/login/").post(data).build()
+            val request: Request =  Request.Builder().url("https://trivialciapi.maticsulc.com/auth/facelogin/").post(data).build()
 
             try {
                 client.newCall(request).enqueue(object: Callback {
                     override fun onResponse(call: Call, response: Response) {
-                        println(response)
                         if(response.code != 200){
                             runOnUiThread {
                                 Toast.makeText(applicationContext, "Napaka pri prijavi s kamero." , Toast.LENGTH_SHORT).show()
@@ -66,6 +67,8 @@ class LoginActivity : MainActivity() {
                         }
                         else{
                             runOnUiThread {
+                                val obj = Gson().fromJson(response.body!!.string(), FaceResponse::class.java)
+                                Toast.makeText(applicationContext, "V bistvu ti je ime ${obj.name}", Toast.LENGTH_LONG).show()
                                 showMain()
                             }
                         }
