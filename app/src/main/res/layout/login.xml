@@ -7,7 +7,7 @@
     android:background="?colorSecondaryVariant">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/topBackground"
         android:layout_width="wrap_content"
         android:layout_height="123dp"
         android:layout_marginTop="0dp"
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/topBackground" />
 
     <TextView
         android:id="@+id/textView"
@@ -70,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/logoutbtn"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:background="@drawable/gradient"

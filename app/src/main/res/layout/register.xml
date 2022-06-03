@@ -19,7 +19,7 @@
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/topBackground"
         android:layout_width="wrap_content"
         android:layout_height="123dp"
         android:layout_marginTop="0dp"
@@ -203,7 +203,7 @@
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/logoutbtn"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:background="@drawable/gradient"

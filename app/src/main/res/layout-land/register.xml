@@ -7,7 +7,7 @@
     android:background="?colorSecondaryVariant">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/topBackground"
         android:layout_width="wrap_content"
         android:layout_height="123dp"
         android:layout_marginTop="0dp"
@@ -152,7 +152,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        app:layout_constraintTop_toTopOf="@+id/topBackground" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/middleGuidleline"
@@ -176,13 +176,13 @@
         android:text="@string/confirmation"
         android:textColor="?colorOnPrimary"
         app:layout_constraintBaseline_toBaselineOf="@+id/newRepeatPassword"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintEnd_toStartOf="@+id/logoutbtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/newRepeatPassword"
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/logoutbtn"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:background="@drawable/gradient"
