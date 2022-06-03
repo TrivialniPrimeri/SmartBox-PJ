@@ -22,15 +22,14 @@
         android:id="@+id/registerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/rubik_medium"
         android:text="@string/welcomeBack"
         android:textColor="?colorOnPrimary"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBackground" />
+        app:layout_constraintTop_toTopOf="@+id/topBackground" />
 
     <TextView
         android:id="@+id/textView"
@@ -48,11 +47,9 @@
 
     <EditText
         android:id="@+id/edit_password"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_edittext"
         android:drawableLeft="@drawable/ic_lock"
         android:drawablePadding="10dp"
@@ -65,7 +62,7 @@
         android:textColor="?colorSecondary"
         android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
@@ -116,19 +113,16 @@
         android:paddingEnd="15dp"
         android:text="@string/camera"
         android:textColor="?colorOnPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/logoutbtn"
+        app:layout_constraintStart_toEndOf="@+id/button4"
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/edit_email"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/rounded_edittext"
         android:drawableLeft="@drawable/ic_email"
         android:drawablePadding="10dp"
@@ -141,7 +135,7 @@
         android:textColor="?colorSecondary"
         android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 

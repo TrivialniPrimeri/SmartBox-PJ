@@ -7,18 +7,6 @@
     android:background="?colorSecondaryVariant">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="329dp"
-        android:layout_height="475dp"
-        android:contentDescription="@string/backgroundDescriptor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_graybackground"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
         android:id="@+id/topBackground"
         android:layout_width="wrap_content"
         android:layout_height="123dp"
@@ -32,10 +20,9 @@
 
     <EditText
         android:id="@+id/newName"
-        android:layout_width="140dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/rounded_edittext"
         android:drawableLeft="@drawable/ic_profile"
         android:drawablePadding="10dp"
@@ -45,21 +32,19 @@
         android:minHeight="48dp"
         android:padding="10dip"
         android:paddingStart="20dp"
-        android:textCursorDrawable="@drawable/color_cursor"
         android:textColor="?colorSecondary"
+        android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintEnd_toStartOf="@+id/middleGuidleline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/registerTitle"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/newSurname"
-        android:layout_width="140dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_edittext"
         android:drawableLeft="@drawable/ic_profile"
-        android:textColor="?colorSecondary"
-        android:layout_marginEnd="50dp"
         android:drawablePadding="10dp"
         android:elevation="10dp"
         android:hint="@string/regSurname"
@@ -67,6 +52,7 @@
         android:minHeight="48dp"
         android:padding="10dip"
         android:paddingStart="20dp"
+        android:textColor="?colorSecondary"
         android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintBaseline_toBaselineOf="@+id/newName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,13 +61,9 @@
 
     <EditText
         android:id="@+id/newEmail"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="50dp"
         android:background="@drawable/rounded_edittext"
-        android:textColor="?colorSecondary"
         android:drawableLeft="@drawable/ic_email"
         android:drawablePadding="10dp"
         android:elevation="10dp"
@@ -90,19 +72,17 @@
         android:minHeight="48dp"
         android:padding="10dip"
         android:paddingStart="20dp"
+        android:textColor="?colorSecondary"
         android:textCursorDrawable="@drawable/color_cursor"
+        app:layout_constraintBaseline_toBaselineOf="@+id/newPhoneNumber"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/newName"
-        app:layout_constraintTop_toBottomOf="@+id/newSurname" />
+        app:layout_constraintStart_toStartOf="@+id/middleGuidleline" />
 
     <EditText
         android:id="@+id/newPhoneNumber"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:textColor="?colorSecondary"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/rounded_edittext"
         android:drawableLeft="@drawable/ic_phone"
         android:drawablePadding="10dp"
@@ -112,20 +92,18 @@
         android:minHeight="48dp"
         android:padding="10dip"
         android:paddingStart="20dp"
+        android:textColor="?colorSecondary"
         android:textCursorDrawable="@drawable/color_cursor"
-        app:layout_constraintStart_toStartOf="@+id/newEmail"
-        app:layout_constraintTop_toBottomOf="@+id/newEmail"
+        app:layout_constraintEnd_toStartOf="@+id/middleGuidleline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newName"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/newAddress"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
         android:background="@drawable/rounded_edittext"
-        android:textColor="?colorSecondary"
         android:drawableLeft="@drawable/ic_address"
         android:drawablePadding="10dp"
         android:elevation="10dp"
@@ -134,20 +112,19 @@
         android:minHeight="48dp"
         android:padding="10dip"
         android:paddingStart="20dp"
+        android:textColor="?colorSecondary"
         android:textCursorDrawable="@drawable/color_cursor"
-        app:layout_constraintStart_toStartOf="@+id/newPhoneNumber"
-        app:layout_constraintTop_toBottomOf="@+id/newPhoneNumber"
+        app:layout_constraintBaseline_toBaselineOf="@+id/newPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/middleGuidleline"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/newPassword"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/rounded_edittext"
-        android:textColor="?colorSecondary"
         android:drawableLeft="@drawable/ic_lock"
         android:drawablePadding="10dp"
         android:elevation="10dp"
@@ -156,23 +133,26 @@
         android:minHeight="48dp"
         android:padding="10dip"
         android:paddingStart="20dp"
+        android:textColor="?colorSecondary"
         android:textCursorDrawable="@drawable/color_cursor"
-        app:layout_constraintStart_toStartOf="@+id/newAddress"
-        app:layout_constraintTop_toBottomOf="@+id/newAddress"
+        app:layout_constraintEnd_toStartOf="@+id/middleGuidleline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newPhoneNumber"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/registerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/rubik_medium"
         android:text="@string/regTitle"
         android:textColor="?colorOnPrimary"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/topBackground" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/middleGuidleline"
@@ -185,7 +165,6 @@
         android:id="@+id/button2"
         android:layout_width="96dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="15dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/rubik"
         android:onClick="submitRegister"
@@ -196,10 +175,10 @@
         android:paddingRight="15dp"
         android:text="@string/confirmation"
         android:textColor="?colorOnPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/middleGuidleline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/newRepeatPassword"
+        app:layout_constraintEnd_toStartOf="@+id/logoutbtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/newRepeatPassword"
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <Button
@@ -216,28 +195,28 @@
         android:textColor="?colorOnPrimary"
         app:layout_constraintBaseline_toBaselineOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/middleGuidleline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button2"
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/newRepeatPassword"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/rounded_edittext"
         android:drawableLeft="@drawable/ic_lock"
-        android:textColor="?colorSecondary"
         android:drawablePadding="10dp"
         android:elevation="10dp"
-        android:inputType="textPassword"
         android:hint="@string/regRepeatPassword"
+        android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dip"
         android:paddingStart="20dp"
+        android:textColor="?colorSecondary"
         android:textCursorDrawable="@drawable/color_cursor"
-        app:layout_constraintStart_toStartOf="@+id/newPassword"
+        app:layout_constraintEnd_toStartOf="@+id/middleGuidleline"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newPassword"
         tools:ignore="SpeakableTextPresentCheck" />
 
