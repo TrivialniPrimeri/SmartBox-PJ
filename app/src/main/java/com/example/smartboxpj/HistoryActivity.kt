@@ -15,10 +15,7 @@ import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersisto
 import com.google.gson.Gson
 import okhttp3.*
 import java.io.IOException
-import java.time.Instant
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.ZoneOffset
+import java.time.*
 import java.time.format.DateTimeFormatter
 
 data class Box (
@@ -68,7 +65,7 @@ class HistoryActivity : MainActivity() {
                                     data.add(
                                         ItemsViewModel(
                                             "${it.boxId.nickname} (${it.boxId.boxId})",
-                                            Instant.parse(it.createdAt).atZone(ZoneOffset.UTC).toLocalDateTime(),
+                                            Instant.parse(it.createdAt).atZone(ZoneId.of("Europe/Ljubljana")).toLocalDateTime(),
                                             it.success,
                                             if (it.success) R.drawable.ic_openboxsuccess else R.drawable.ic_openboxfail
                                         )
