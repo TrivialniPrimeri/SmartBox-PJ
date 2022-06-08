@@ -68,7 +68,7 @@ class LoginActivity : MainActivity() {
                         else{
                             runOnUiThread {
                                 val obj = Gson().fromJson(response.body!!.string(), FaceResponse::class.java)
-                                Toast.makeText(applicationContext, "V bistvu ti je ime ${obj.name}", Toast.LENGTH_LONG).show()
+                                Toast.makeText(applicationContext, "Pozdravljeni, ${obj.name}", Toast.LENGTH_LONG).show()
                                 showMain()
                             }
                         }
